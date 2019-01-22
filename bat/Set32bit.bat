@@ -1,0 +1,1 @@
+set OSGEO4W_32ON64=1

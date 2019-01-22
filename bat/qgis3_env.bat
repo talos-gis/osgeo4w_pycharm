@@ -1,0 +1,16 @@
+SET OSGEO_PF=%ProgramFiles%
+IF DEFINED ProgramW6432 (IF NOT DEFINED OSGEO4W_32ON64 (SET OSGEO_PF=%ProgramW6432%))
+
+                               SET OSGEO4W_ROOT=%OSGEO_PF%\QGIS 3.8
+if not exist "%OSGEO4W_ROOT%" SET OSGEO4W_ROOT=%OSGEO_PF%\QGIS 3.6
+if not exist "%OSGEO4W_ROOT%" SET OSGEO4W_ROOT=%OSGEO_PF%\QGIS 3.4
+if not exist "%OSGEO4W_ROOT%" SET OSGEO4W_ROOT=%OSGEO_PF%\QGIS 3.2
+if not exist "%OSGEO4W_ROOT%" SET OSGEO4W_ROOT=%OSGEO_PF%\QGIS 3.0
+if not exist "%OSGEO4W_ROOT%" SET OSGEO4W_ROOT=%OSGEO_PF%\QGIS 2.99
+if not exist "%OSGEO4W_ROOT%" SET OSGEO4W_ROOT=c:\OSGeo4W64
+SET PYTHON_V=36
+
+call %~dp0\qgis_env.bat
+if ERRORLEVEL 1 exit /b 1
+call "%OSGEO4W_ROOT%\bin\qt5_env.bat"
+call "%OSGEO4W_ROOT%\bin\py3_env.bat"
